@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 指定Struts 2 处于开发阶段，可以进行调试 -->
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+        
+    <!-- struts2的action必须放在一个指定的包空间下定义 -->
+    <package name="default" namespace="/" extends="struts-default">
+    
+    <!-- 定义一个名为user的Action，实现类为com.abc.action -->
+        <action name="login" class="com.abc.Struts.action.LoginAction">
+        <!-- 配置execute()方法返回值与视图资源之间的映射关系 -->
+            <result name="success">/first.jsp</result>
+            <result name="error">/error.jsp</result>
+			<result name="input">/login.jsp</result>        
+        </action>
+        <action name="clicknum" class="com.abc.Struts.action.ClickNameAction">
+        <!-- 配置execute()方法返回值与视图资源之间的映射关系 -->
+            <result name="success">/clickNum.jsp</result>       
+        </action>
+        
+        <action name="product" class="com.abc.Struts.action.ProductAction">
+            <result name="edit">/edit.jsp</result>
+            <result name="del">/del.jsp</result>        
+        </action>
+        
+    </package>
+</struts>
